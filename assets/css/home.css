@@ -1,0 +1,236 @@
+
+:root {
+  --primary-color: rgb(105, 169, 242);
+  --bg-color: rgb(255, 255, 255);
+}
+
+body{
+    margin: 0;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 600px;
+    height: 720px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+}
+.heading{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+.form_class{
+    position: relative;
+    width: 100%;
+    height: 160px;
+    overflow: auto;
+    overflow-x: hidden;
+    padding:20px;
+}
+.desc_Class input{
+    color: var(--primary-color);
+    border:1px solid var(--primary-color);
+    width: 90%;
+    height: 20px;
+    padding: 20px;
+    margin: 10px 10px 10px 0;
+    font-size: 15px;
+}
+.desc_Class input::placeholder{
+    color: var(--primary-color);
+}
+.select_and_input{
+    width: 90%;
+    height: 30px;
+    margin: 0 0 15px 0;
+    font-size: 15px;
+}
+.select_and_input select{
+    color: var(--primary-color);
+    border:1px solid var(--primary-color);
+    height: 30px;
+    width: 48%; 
+    margin-right: 10px;
+}
+.select_and_input input{
+    border:1px solid  var(--primary-color);
+    height: 30px;
+    width: 48%;
+}
+
+.Buttons{
+    margin-left: 250px;
+}
+.buttonDesign{
+    margin: 0 8px;
+    border:1px solid  var(--primary-color);
+    height: 20px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    transition: transform 0.3s;
+}
+.buttonDesign:hover{
+    box-shadow: 0px 0px 1px 1px var(--primary-color) ; 
+    transform:scale(1.1);
+}
+.list{
+    position: relative;
+    width: 100%;
+    height: 385px;
+    overflow: auto;
+    overflow-x: hidden;
+    padding:20px;
+    gap:12px;
+    display: grid;
+    grid-template-columns: repeat(1,5fr);
+}
+.list::-webkit-scrollbar{
+    display: none;
+}
+.list .singleTask{
+    box-sizing: border-box;
+    position:relative;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: row;
+    padding: 20px;
+    max-height: 60px;
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 0 1px #228f7621, 0 3px 5px #71a2f163;
+  }
+  .list .singleTask:hover{
+    transform:scale(1.05);
+  }
+  .singleTask .delete{
+    position:absolute;
+    top:-6px;
+    right:-6px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    transition: all 0.3s ease
+  }
+  .singleTask .delete img{
+    position: relative;
+    left: 4PX;
+    pointer-events: none;
+    width: 60%;
+  }
+  .singleTask:hover .delete{
+    opacity: 1;
+    visibility: visible;
+  }
+  .toggle{
+    padding-right: 10px;
+    position: absolute;
+    width: max-content;
+    top:30%;
+    right:1%
+  }
+  .toggle .track{
+    width: 45px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: rgb(156, 210, 239);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .toggle .thumb{
+    position: absolute;
+    width:20px;
+    height:20px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    top:10%;
+    left:3%;
+    z-index: 1;
+  }
+  .toggle .checkbox:checked ~ .thumb{
+    left:43%;
+    background-color: var(--bg-color);
+  }
+  .toggle .checkbox:checked ~ .track{
+    background-color: var(--primary-color);
+  }
+ 
+  .list .singleTask .name_and_dueDate{
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .list .singleTask .name_and_dueDate .dispdsc{
+    padding-top: 8px;
+    margin: 0;
+  }
+  .list .singleTask .name_and_dueDate .dueDate{
+    margin: 0;
+    padding-left: 25px;
+    padding-top: 5px;
+    font-size: 12px;
+  }
+  .list .singleTask .catesec{
+    position: absolute;
+    left: 300px;
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 600;
+    padding-right: 20px;
+  } 
+  .list .singleTask .editClass a{
+    position: absolute;
+    top: 20px;
+    left: 390px;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  .list .singleTask .editClass a:hover{
+    text-decoration: underline;
+  }
+/*
+
+.list .singleTask .name_and_dueDate{
+    color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.list .singleTask .catesec{
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 600;
+}
+.editClass a{
+    text-decoration: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.editClass a:hover{
+    text-decoration: underline;
+} */
+

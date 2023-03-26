@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <link rel="stylesheet" href="/css/edit_page.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="heading">Edit Page</div>
+            <div class="form_class">
+                <form action="/edit-todolist?id=<%= todolist._id %>" method="POST">
+                    <div class="desc_Class">
+                        <input type="textarea" required name="desc" value="<%= todolist.desc %>"> 
+                    </div>
+                    <div class="select_and_input">
+                        <select name="category" required>
+                            <option value=<%= todolist.category %>  selected><%= todolist.category %></option>
+                            <option>Personal</option>
+                            <option>Work</option>
+                            <option>Claeaning</option>
+                            <option>Others</option>
+                        </select>
+                        <input type="date" class="datesValues" style="color: rgb(51, 117, 153);" name="dateValue" value="<%= todolist.dueDate %>" required>
+                    </div>
+                    <button type="submit" class="buttonDesign " style = "color: rgb(51, 117, 153); padding-top:2px ;" id="submitButton" ><i class="fa fa-plus-square" > </i> Update</button>
+                </form>
+                    
+            </div>
+        </div>
+    </body>
+</html>

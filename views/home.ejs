@@ -1,0 +1,78 @@
+
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/home.css"> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="heading">Todo List</div>
+            <div class="form_class">
+                <form action="/create_todo" method="POST">
+                    <div class="desc_Class">
+                        <input type="textarea" required name="desc" placeholder="what do you need to do"> 
+                    </div>
+                    <div class="select_and_input">
+                        <select name="category" required>
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Personal</option>
+                            <option>Work</option>
+                            <option>Cleaning</option>
+                            <option>Others</option>
+                        </select>
+                        <input type="date" class="datesValues" style="color: rgb(51, 117, 153);" name="dateValue" placeholder="Due data dd/mm/yyyy" required>
+                    </div>
+                    <button type="submit" class="buttonDesign " style = "color: rgb(51, 117, 153); padding-top:2px ;" id="submitButton" ><i class="fa fa-plus-square" > </i> Add</button>
+                </form>
+                    
+            </div>
+            <!-- the list that contains every todolist in it -->
+            <div class="list">
+                <% for(let i of todo_list) { let j=0; let newIds='descids'+j; %>
+                    <div class="singleTask">
+                        <!-- <input type="checkbox" name="delechack" class="delechack" onclick="checkedOrNot()" uid = <%= i._id %> > -->
+                        <div class="name_and_dueDate">
+                            <p id=<%= i._id %>  uid = <%= i._id %> class="dispdsc">
+                                <% if([...i.desc].length >= 24){ %>
+                                    <%= i.desc.slice(0,25)+"..."%>
+                                <%}else{%>
+                                    <%= i.desc%>
+                                    <%}%>
+                            </p>
+                            <p id=<%= i._id + i.dueDate %> class="dueDate"  ><%= i.dueDate %></p>
+                        </div>
+                        <div class="catesec">
+                            <p id=<%= i._id + i.category %> class="cate"  ><%= i.category %></p>
+                        </div >
+                            <div class="editClass"><a href="/editdata/?id=<%=i._id %>">Edit</a></div>
+                            <label class="toggle">
+                                <input type="checkbox" name="delechack" class="checkbox" onclick="checkedOrNot()" hidden  uid = <%= i._id %> >
+                                <div class="track" ></div>
+                                <div class="thumb" ></div>
+                            </label>
+                        <div class="delete" >
+                            <a href="/delete_todo/<%= i._id %>">
+                                <img src="/images/delete.png">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <% j++; } %>
+            </div>
+        </div>
+        <script src="/js/script.js"></script>
+        <!-- To Show the Alert message using sweetAlert -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+              if ("<%= alert %>" === "true") {
+                var alertTitle = "<%= alertTitle %>"
+                var alertMessage = "<%= alertMessage %>"
+                swal(alertTitle, alertMessage, "success");
+              }
+            })
+          </script>
+    </body>
+</html>

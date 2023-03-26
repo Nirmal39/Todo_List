@@ -1,0 +1,82 @@
+
+:root {
+    --primary-color: rgb(105, 169, 242);
+    --bg-color: rgb(255, 255, 255);
+  }
+  
+  body{
+      margin: 0;
+      background-color: var(--primary-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .container{
+      width: 600px;
+      height: 300px;
+      background-color: var(--bg-color);
+      border-radius: 10px;
+  }
+  .heading{
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: var(--primary-color);
+      letter-spacing: 2px;
+  }
+  .form_class{
+      position: relative;
+      width: 100%;
+      height: 160px;
+      overflow: auto;
+      overflow-x: hidden;
+      padding:20px;
+  }
+  .desc_Class input{
+      color: var(--primary-color);
+      border:1px solid var(--primary-color);
+      width: 90%;
+      height: 20px;
+      padding: 20px;
+      margin: 10px 10px 10px 0;
+      font-size: 15px;
+  }
+  .desc_Class input::placeholder{
+      color: var(--primary-color);
+  }
+  .select_and_input{
+      width: 90%;
+      height: 30px;
+      margin: 0 0 15px 0;
+      font-size: 15px;
+  }
+  .select_and_input select{
+      color: var(--primary-color);
+      border:1px solid var(--primary-color);
+      height: 30px;
+      width: 48%; 
+      margin-right: 10px;
+  }
+  .select_and_input input{
+      border:1px solid  var(--primary-color);
+      height: 30px;
+      width: 48%;
+  }
+  
+  .Buttons{
+      margin-left: 250px;
+  }
+  .buttonDesign{
+      margin: 0 8px;
+      border:1px solid  var(--primary-color);
+      height: 20px;
+      width: 80px;
+      border-radius: 10px;
+      background-color: var(--bg-color);
+      transition: transform 0.3s;
+  }
+  .buttonDesign:hover{
+      box-shadow: 0px 0px 1px 1px var(--primary-color) ; 
+      transform:scale(1.1);
+  }
